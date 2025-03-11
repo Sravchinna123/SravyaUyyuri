@@ -12,7 +12,6 @@ params = {
 response = requests.get(url, params=params)
 
 # Check if the request was successful
-if response.status_code = 200:
   return response.json() # Return the JSON response
 else:
     print("Error fetchingg data:", response.status_code)
