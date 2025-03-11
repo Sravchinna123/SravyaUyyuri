@@ -1,0 +1,47 @@
+import requests
+import pandas as pd
+def fetch_research_papers(query):
+  #Define the API endpoint and parameters
+url = "https://api.example.com/research_papers"   # Replace with actual API URL
+params = {
+    'query': query,
+    'affiliation': 'pharmaceutical, biotech'  #Filterfor specific affiliations
+}
+
+#Make the API request
+response = requests.get(url, params=params)
+
+# Check if the request was successful
+if response.status_code = 200:
+  return response.json() # Return the JSON response
+else:
+    print("Error fetchingg data:", response.status_code)
+return[]
+ def filter_papers(papers):
+filtered_papers = []
+for paper in papers:
+authors = paper.get('authors', [])
+for author in papers:
+if 'pharmaceutical' in author['affiliation'].lower() or 'biotech' in author['affiliation'].lowe():
+   filtered_papers.append(paper)
+break # No need to check other authors for this paper
+return filtered_papers
+def save_to_csv(papers, filename):
+  df = pd.DataFrame(papers)
+  df.to_csv(filename, index=false)
+def main():
+    query = input("Enter yourresearch query:")
+    papers = fetch_research_papers(query)
+    filtered_papers = filter_papers(papers)
+
+   if filtered_papers:
+   save_to_csv(filtered_papers, 'research_papers.csv')
+print("Results saved to research_papers.csv")
+else:
+print("No papers foundwith the specified criteria.")
+
+
+if __name__ = "__main__":
+   main()
+
+ 
