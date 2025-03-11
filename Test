@@ -21,7 +21,7 @@ filtered_papers = []
 for paper in papers:
 authors = paper.get('authors', [])
 for author in papers:
-if 'pharmaceutical' in author['affiliation'].lower() or 'biotech' in author['affiliation'].lowe():
+if 'pharmaceutical' in author['affiliation'].lower() or 'biotech' in author['affiliation'].lower():
    filtered_papers.append(paper)
 break # No need to check other authors for this paper
 return filtered_papers
